@@ -49,10 +49,10 @@ exports.initialize = async function ({ req, res }) {
 
         return res.json({
             message: "good ok yeyy",
-         {            
+                    
             one: left,
             two: right,
-        }
+        
         });
     } catch (error) {
         return res.json({
