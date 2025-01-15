@@ -48,11 +48,10 @@ exports.initialize = async function ({ req, res }) {
         right = pairs[left];
 
         return res.json({
-            message: "success",
-            result: {
-                one: left,
-                two: right,
-            },
+            message: "good ok yeyy",
+            result: "true" 
+            one: left,
+            two: right,
         });
     } catch (error) {
         return res.json({
