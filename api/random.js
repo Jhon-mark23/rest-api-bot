@@ -12,9 +12,7 @@ exports.config = {
 exports.initialize = async function ({ req, res }) {
     try {
        
-        const response = await axios.get(
-            "https://random-hugot-api.onrender.com/random" + encodeURIComponent()
-        );
+        const response = await axios.get("https://random-hugot-api.onrender.com/random");
 
         const result = response.data.random;
 
