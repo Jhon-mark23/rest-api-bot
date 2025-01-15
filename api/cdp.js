@@ -49,9 +49,9 @@ exports.initialize = async function ({ req, res }) {
 
         return res.json({
             message: "good ok yeyy",
-            result: "true" 
-            one: left,
-            two: right,
+            result: "true",
+            one: "left",
+            two: "right"
         });
     } catch (error) {
         return res.json({
