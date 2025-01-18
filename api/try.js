@@ -6,7 +6,7 @@ exports.config = {
     description: 'search your fav lyrics',
     method: 'get',
     category: 'search',
-    link: ['/search?q=']
+    link: ['/xdl?q=']
 };
 
 exports.initialize = async function ({ req, res }) {
@@ -16,7 +16,7 @@ exports.initialize = async function ({ req, res }) {
     }
 
     try {
-        const response = await axios.get('https://api.joshweb.click/prn/search/' + encodeURIComponent(q));
+        const response = await axios.get('https://api.joshweb.click/api/xdl?q=' + encodeURIComponent(q));
         const result = response.data.result;
         return res.json({ result });
     } catch (error) {
