@@ -5,13 +5,13 @@ exports.config = {
     author: 'try',
     description: 'try',
     method: 'get',
-    category: 'other',
-    link: ['/xdl?q=']
+    category: 'downloader',
+    link: ['/xdl']
 };
 
 exports.initialize = async function ({ req, res }) {
     try {
-        const q = req.query.q;
+        const q = req.query;
         const response = await axios.get(`https://api.joshweb.click/api/xdl?q=${encodeURIComponent(q)}`);
 
         /*
@@ -19,7 +19,7 @@ exports.initialize = async function ({ req, res }) {
             "https://api.joshweb.click/api/xdl?q=" + encodeURIComponent(q)
         );*/
 
-        const result = response.data.result;
+        const result = response.data;
 
         return res.status(200).json({ status: true, result, author: "yey" });
     } catch (e) {
