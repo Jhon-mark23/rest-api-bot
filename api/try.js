@@ -1,12 +1,12 @@
 const axios = require("axios");
 
 exports.config = {
-    name: 'baybayin',
-    author: 'joshua Apostol',
-    description: 'Translate text to Baybayin',
+    name: 'try',
+    author: 'try',
+    description: 'try',
     method: 'get',
     category: 'other',
-    link: ['/baybayin?q=hi']
+    link: ['/dltry?q=']
 };
 
 exports.initialize = async function ({ req, res }) {
