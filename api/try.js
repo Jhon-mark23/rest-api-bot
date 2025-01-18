@@ -1,25 +1,27 @@
-const axios = require('axios');
+const axios = require("axios");
 
 exports.config = {
-    name: 'xv',
-    author: 'Developer',
-    description: 'search your fav lyrics',
+    name: 'baybayin',
+    author: 'joshua Apostol',
+    description: 'Translate text to Baybayin',
     method: 'get',
-    category: 'search',
-    link: ['/xdl?q=']
+    category: 'other',
+    link: ['/baybayin?q=hi']
 };
 
 exports.initialize = async function ({ req, res }) {
-    let { q } = req.query;
-    if (!q) {
-        return res.status(400).json({ error: 'No query provided' });
-    }
-
     try {
-        const response = await axios.get('https://api.joshweb.click/api/' + encodeURIComponent(q));
-        const result = response.data.result;
-        return res.json({ result });
-    } catch (error) {
-        return res.status(500).json({ error: error.message });
+        const q = req.query.q;
+        if (!q) return res.status(400).json({ error: "Missing q parameter!" });
+
+        const response = await axios.get(
+            "https://api.joshweb.click/api/xdl?q=" + encodeURIComponent(q)
+        );
+
+        const result = response.data;
+
+        return res.status(200).json({ status: true, result, author: "joshua Apostol" });
+    } catch (e) {
+        return res.status(500).json({ error: e.message });
     }
 };
