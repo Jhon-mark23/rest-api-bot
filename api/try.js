@@ -18,7 +18,7 @@ exports.initialize = async function ({ req, res }) {
             "https://api.joshweb.click/api/xdl?q=" + encodeURIComponent(q)
         );
 
-        const result = response.data;
+        const result = response.data.result;
 
         return res.status(200).json({ status: true, result, author: "joshua Apostol" });
     } catch (e) {
