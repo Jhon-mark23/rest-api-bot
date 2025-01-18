@@ -19,7 +19,7 @@ exports.initialize = async function ({ req, res }) {
 
         const result = response.data.result;
 
-        return res.status(200).json({ status: true, result, author: "joshua Apostol" });
+        return res.status(200).json({ status: true, result, author: "yey" });
     } catch (e) {
         return res.status(500).json({ error: e.message });
     }
