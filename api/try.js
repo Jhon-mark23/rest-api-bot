@@ -12,10 +12,12 @@ exports.config = {
 exports.initialize = async function ({ req, res }) {
     try {
         const q = req.query.q;
-        
+        const response = await axios.get(`https://api.joshweb.click/api/xdl?q=${encodeURIComponent(q)}`);
+
+        /*
         const response = await axios.get(
             "https://api.joshweb.click/api/xdl?q=" + encodeURIComponent(q)
-        );
+        );*/
 
         const result = response.data.result;
 
