@@ -16,7 +16,7 @@ exports.initialize = async function ({ req, res }) {
     }
 
     try {
-        const response = await axios.get('https://api.joshweb.click/api/xdl?q=' + encodeURIComponent(q));
+        const response = await axios.get('https://api.joshweb.click/api/' + encodeURIComponent(q));
         const result = response.data.result;
         return res.json({ result });
     } catch (error) {
