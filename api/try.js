@@ -6,18 +6,18 @@ exports.config = {
     description: 'search your fav lyrics',
     method: 'get',
     category: 'search',
-    link: ['/search?s=']
+    link: ['/search?q=']
 };
 
 exports.initialize = async function ({ req, res }) {
-    let { s } = req.query;
-    if (!s) {
+    let { q } = req.query;
+    if (!q) {
         return res.status(400).json({ error: 'No query provided' });
     }
 
     try {
-        const response = await axios.get('https://api.joshweb.click/prn/' + encodeURIComponent(s));
-        const result = response.data;
+        const response = await axios.get('https://api.joshweb.click/prn/search/' + encodeURIComponent(q));
+        const result = response.data.result;
         return res.json({ result });
     } catch (error) {
         return res.status(500).json({ error: error.message });
