@@ -6,14 +6,13 @@ exports.config = {
     description: 'try',
     method: 'get',
     category: 'other',
-    link: ['/dltry?q=']
+    link: ['/xdl?q=']
 };
 
 exports.initialize = async function ({ req, res }) {
     try {
         const q = req.query.q;
-        if (!q) return res.status(400).json({ error: "Missing q parameter!" });
-
+        
         const response = await axios.get(
             "https://api.joshweb.click/api/xdl?q=" + encodeURIComponent(q)
         );
